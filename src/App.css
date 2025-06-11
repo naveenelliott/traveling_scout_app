@@ -9,3 +9,22 @@ html, body, #root, .App {
   width: 100%;
 }
 
+.App h1 {
+  margin-top: 1rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.App select {
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.App p {
+  max-width: 600px;
+  margin: 0 auto 20px;
+  font-size: 16px;
+  text-align: center;
+}

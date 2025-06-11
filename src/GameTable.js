@@ -14,8 +14,9 @@ const tdStyle = {
 
 function GameTable({ data }) {
   return (
-    <div style={{ padding: '20px' }}>
-      <h2>Game Schedule</h2>
+    <div style={{ padding: '20px', maxWidth: '95%', margin: '0 auto' }}>
+      {/* ✅ Centered Title */}
+      <h2 style={{ textAlign: 'center', marginBottom: '16px' }}>Game Schedule</h2>
       <table style={{ width: '100%', borderCollapse: 'collapse' }}>
         <thead>
           <tr style={{ background: '#f0f0f0' }}>
@@ -30,12 +31,12 @@ function GameTable({ data }) {
         <tbody>
           {data.map((row, idx) => (
             <tr key={idx} style={{ background: idx % 2 === 0 ? '#fff' : '#f9f9f9' }}>
-              <td style={tdStyle}>{row.match}</td>
+              <td style={tdStyle}>{row.match_id}</td>
               <td style={tdStyle}>{row.date}</td>
-              <td style={tdStyle}>{row.from_team}</td>
-              <td style={tdStyle}>{row.next_home}</td>
-              <td style={tdStyle}>{parseFloat(row.distance).toFixed(2)}</td>
-              <td style={tdStyle}>{parseFloat(row.talent).toFixed(3)}</td>
+              <td style={tdStyle}>{row.match_home_team}</td>
+              <td style={tdStyle}>{row.next_team}</td>
+              <td style={tdStyle}>{parseFloat(row.distance_km).toFixed(2)}</td>
+              <td style={tdStyle}>{parseFloat(row.avg_talent).toFixed(3)}</td>
             </tr>
           ))}
         </tbody>

@@ -32,18 +32,20 @@ function PolylineWithArrows({ positions, color, idx }) {
   );
 }
 
-function GameMap() {
+function GameMap({ csvPath }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    Papa.parse('/react_app_data.csv', {
+    if (!csvPath) return;
+
+    Papa.parse(csvPath, {
       download: true,
       header: true,
       complete: (result) => {
         setData(result.data);
       },
     });
-  }, []);
+  }, [csvPath]);
 
   // Set up a color scale from cool blue to pink/red
   const colorScale = scaleSequential(interpolateCool).domain([0, data.length - 1]);
@@ -89,7 +91,9 @@ function GameMap() {
 
     {/* ✅ Legend component placed below the map */}
     <GradientLegend colorScale={colorScale} total={data.length} />
-    <GameTable data={data} />
+    <div style={{ textAlign: 'left', margin: '0 auto', maxWidth: '85%' }}>
+      <GameTable data={data} />
+    </div>
   </>
 );
 }
