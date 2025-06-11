@@ -12,14 +12,14 @@ const tdStyle = {
   fontSize: '14px'
 };
 
-function GameTable({ data }) {
+function GameTable({ data, selectedIndex, setSelectedIndex }) {
   return (
     <div style={{ padding: '20px', maxWidth: '95%', margin: '0 auto' }}>
-      {/* ✅ Centered Title */}
       <h2 style={{ textAlign: 'center', marginBottom: '16px' }}>Game Schedule</h2>
-      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+      <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
         <thead>
           <tr style={{ background: '#f0f0f0' }}>
+            <th style={thStyle}>#</th>
             <th style={thStyle}>Match</th>
             <th style={thStyle}>Date</th>
             <th style={thStyle}>From</th>
@@ -30,7 +30,20 @@ function GameTable({ data }) {
         </thead>
         <tbody>
           {data.map((row, idx) => (
-            <tr key={idx} style={{ background: idx % 2 === 0 ? '#fff' : '#f9f9f9' }}>
+            <tr
+              key={idx}
+              onClick={() => setSelectedIndex(idx)}
+              style={{
+                background:
+                  idx === selectedIndex
+                    ? '#ffd8d8'
+                    : idx % 2 === 0
+                    ? '#fff'
+                    : '#f9f9f9',
+                cursor: 'pointer',
+              }}
+            >
+              <td style={tdStyle}>{idx + 1}</td>
               <td style={tdStyle}>{row.match_id}</td>
               <td style={tdStyle}>{row.date}</td>
               <td style={tdStyle}>{row.match_home_team}</td>
@@ -44,5 +57,6 @@ function GameTable({ data }) {
     </div>
   );
 }
+
 
 export default GameTable;

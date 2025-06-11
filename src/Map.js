@@ -15,37 +15,27 @@ function PolylineWithArrows({ positions, color, idx }) {
   useEffect(() => {
     if (polylineRef.current) {
       polylineRef.current.arrowheads({
-        size: '15px',
+        size: '10px',
         frequency: 'endonly',
         fill: true,
         yawn: 60
       });
     }
-  }, []);
+  }, [color]);
 
   return (
     <Polyline
       ref={polylineRef}
       positions={positions}
-      pathOptions={{ color, weight: 4 - idx * 0.05, opacity: 0.7 }}
+      pathOptions={{ 
+        color, 
+        weight: 4 - idx * 0.05, 
+        opacity: 0.7 }}
     />
   );
 }
 
-function GameMap({ csvPath }) {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    if (!csvPath) return;
-
-    Papa.parse(csvPath, {
-      download: true,
-      header: true,
-      complete: (result) => {
-        setData(result.data);
-      },
-    });
-  }, [csvPath]);
+function GameMap({ data, selectedIndex, setSelectedIndex }) {
 
   // Set up a color scale from cool blue to pink/red
   const colorScale = scaleSequential(interpolateCool).domain([0, data.length - 1]);
@@ -74,7 +64,15 @@ function GameMap({ csvPath }) {
 
   return (
   <>
-    <MapContainer center={[39.5, -98.35]} zoom={4} style={{ height: '90vh', width: '100%' }}>
+    <MapContainer 
+    center={[39.5, -98.35]} 
+    zoom={4} 
+    style={{ height: '90vh', width: '100%' }} 
+    whenCreated={(map) => {
+      // Create a custom pane with high z-index
+      map.createPane('selectedLine');
+      map.getPane('selectedLine').style.zIndex = 1000;
+    }}>
       <TileLayer
         attribution='&copy; OpenStreetMap contributors'
         url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
@@ -82,18 +80,16 @@ function GameMap({ csvPath }) {
       {pathSegments.map((seg, idx) => (
         <PolylineWithArrows
           key={idx}
-          positions={[seg.from, seg.to]}
-          color={seg.color}
           idx={idx}
+          positions={[seg.from, seg.to]}
+          color={selectedIndex === idx ? 'red' : seg.color}
+          pane={selectedIndex === idx ? 'selectedLine' : undefined}
         />
       ))}
     </MapContainer>
 
     {/* ✅ Legend component placed below the map */}
     <GradientLegend colorScale={colorScale} total={data.length} />
-    <div style={{ textAlign: 'left', margin: '0 auto', maxWidth: '85%' }}>
-      <GameTable data={data} />
-    </div>
   </>
 );
 }
