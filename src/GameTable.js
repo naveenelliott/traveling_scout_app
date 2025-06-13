@@ -25,7 +25,7 @@ function GameTable({ data, selectedIndex, setSelectedIndex }) {
             <th style={thStyle}>Date</th>
             <th style={thStyle}>Original Home Team</th>
             <th style={thStyle}>Next Home Team</th>
-            <th style={thStyle}>Distance</th>
+            <th style={thStyle}>Distance (Miles)</th>
             <th style={thStyle}>Talent</th>
           </tr>
         </thead>

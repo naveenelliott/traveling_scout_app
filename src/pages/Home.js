@@ -29,7 +29,7 @@ function Home() {
 
   return (
     <div className="App" style={{ textAlign: 'center', fontFamily: 'sans-serif' }}>
-      <h1 className="page-title">Game Travel Map</h1>
+      <h1 className="page-title">Optimizing Scout Scheduling</h1>
       <p style={{ maxWidth: '600px', margin: '0 auto 20px', fontSize: '16px' }}>
         This interactive map shows a scouting path based on total talent, where the goal is to maximize team talent while minimizing the total distance travelled
         over the course of a season. Use the dropdown below to select a league and load the optimal schedule. The color of each path indicates the game order.
