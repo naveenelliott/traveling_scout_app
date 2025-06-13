@@ -28,3 +28,14 @@ html, body, #root, .App {
   font-size: 16px;
   text-align: center;
 }
+
+.page-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Segoe UI', sans-serif;
+}

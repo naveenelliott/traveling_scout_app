@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Polyline } from 'react-leaflet';
+import { MapContainer, TileLayer, Polyline, Tooltip } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-arrowheads';
 import { useEffect, useRef } from 'react';
@@ -6,7 +6,7 @@ import { scaleSequential } from 'd3-scale';
 import { interpolateCool } from 'd3-scale-chromatic';
 import GradientLegend from './Legend';
 
-function PolylineWithArrows({ positions, color, idx, pane }) {
+function PolylineWithArrows({ positions, color, idx, pane, tooltipText  }) {
   const polylineRef = useRef(null);
 
   useEffect(() => {
@@ -30,7 +30,9 @@ function PolylineWithArrows({ positions, color, idx, pane }) {
         weight: 4 - idx * 0.05,
         opacity: 0.7
       }}
-    />
+      >
+        <Tooltip sticky>{tooltipText}</Tooltip>
+      </Polyline>
   );
 }
 
@@ -49,10 +51,13 @@ function GameMap({ data, selectedIndex }) {
         isNaN(toLat) || isNaN(toLng)
       ) return null;
 
+      
+
       return {
         from: [fromLat, fromLng],
         to: [toLat, toLng],
         color: colorScale(idx),
+        tooltip: `${row.match} — ${new Date(row.date).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}`,
         idx
       };
     })
@@ -80,8 +85,9 @@ function GameMap({ data, selectedIndex }) {
             key={idx}
             idx={idx}
             positions={[seg.from, seg.to]}
-            color={selectedIndex === idx ? 'red' : seg.color}
+            color={selectedIndex === idx ? '#f39c12' : seg.color}
             pane={selectedIndex === idx ? 'selectedLine' : undefined}
+            tooltipText={seg.tooltip}
           />
         ))}
       </MapContainer>
