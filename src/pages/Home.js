@@ -14,9 +14,9 @@ function Home() {
   const handleMonthChange = (e) => setSelectedMonth(e.target.value);
 
   const leagueFileMap = {
-    mls: '/react_app_data_mls.csv',
-    uslc: '/react_app_data_uslc.csv',
-    usl1: '/react_app_data_usl1.csv',
+    mls: `${process.env.PUBLIC_URL}/react_app_data_mls.csv`,
+    uslc: `${process.env.PUBLIC_URL}/react_app_data_uslc.csv`,
+    usl1: `${process.env.PUBLIC_URL}/react_app_data_usl1.csv`,
   };
 
   useEffect(() => {
