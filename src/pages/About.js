@@ -45,7 +45,9 @@ function About() {
           />
           <h3>Andrew</h3>
           <p style={{ lineHeight: 1.5 }}>
-            Andrew (left) is currently a business intelligence specialist at United Soccer League, as well as a part time scout for Lexington Sporting Club’s USLC roster. He recently achieved a M.S. Sport Analytics from Syracuse University, and was most recently an Analytics Consultant for B2League team Kumamoto Volters. Before his journey in analysis, he was a Sports Editor at The Daily Illini during his B.S. Sports Media at the University of Illinois at Urbana-Champaign.
+            Andrew (left) is currently a business intelligence specialist at United Soccer League, as well as a part time scout for Lexington Sporting Club’s USLC roster. 
+            He recently achieved a M.S. Sport Analytics from Syracuse University, and was most recently an Analytics Consultant for B2League team Kumamoto Volters. 
+            Before his journey in analysis, he was a Sports Editor at The Daily Illini during his B.S. Sports Media at the University of Illinois at Urbana-Champaign.
           </p>
         </div>
       </div>
