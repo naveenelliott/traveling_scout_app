@@ -1,15 +1,16 @@
 {
   "files": {
     "main.css": "/traveling_scout_app/static/css/main.958f2733.css",
-    "main.js": "/traveling_scout_app/static/js/main.5b77b2ba.js",
+    "main.js": "/traveling_scout_app/static/js/main.a28c2a54.js",
     "static/js/453.18890952.chunk.js": "/traveling_scout_app/static/js/453.18890952.chunk.js",
+    "static/media/me.jpg": "/traveling_scout_app/static/media/me.4810d0bc78f22acb39b5.jpg",
     "index.html": "/traveling_scout_app/index.html",
     "main.958f2733.css.map": "/traveling_scout_app/static/css/main.958f2733.css.map",
-    "main.5b77b2ba.js.map": "/traveling_scout_app/static/js/main.5b77b2ba.js.map",
+    "main.a28c2a54.js.map": "/traveling_scout_app/static/js/main.a28c2a54.js.map",
     "453.18890952.chunk.js.map": "/traveling_scout_app/static/js/453.18890952.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.958f2733.css",
-    "static/js/main.5b77b2ba.js"
+    "static/js/main.a28c2a54.js"
   ]
 }
