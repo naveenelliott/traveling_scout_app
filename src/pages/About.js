@@ -1,5 +1,6 @@
 // src/pages/About.js
 import React from 'react';
+import meImage from './me.jpg'; // adjust path based on actual location
 
 function About() {
   return (
@@ -22,7 +23,7 @@ function About() {
         {/* Person 1 */}
         <div style={{ flex: '1 1 300px', textAlign: 'center' }}>
           <img
-            src="/images/person1.jpg"
+            src={meImage}
             alt="Person 1"
             style={{ width: '100%', maxWidth: '300px', borderRadius: '10px', marginBottom: '1rem' }}
           />
