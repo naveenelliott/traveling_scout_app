@@ -1,6 +1,7 @@
 // src/pages/About.js
 import React from 'react';
 import meImage from './me.jpg'; // adjust path based on actual location
+import drewImage from './drew.jpg';
 
 function About() {
   return (
@@ -38,13 +39,13 @@ function About() {
         {/* Person 2 */}
         <div style={{ flex: '1 1 300px', textAlign: 'center' }}>
           <img
-            src="/images/person2.jpg"
+            src={drewImage}
             alt="Person 2"
             style={{ width: '100%', maxWidth: '300px', borderRadius: '10px', marginBottom: '1rem' }}
           />
-          <h3>Drew</h3>
+          <h3>Andrew</h3>
           <p style={{ lineHeight: 1.5 }}>
-            John built the interface and tools scouts use day-to-day. A former collegiate player and web developer, he bridges the gap between usability and football IQ.
+            Andrew (left) is currently a business intelligence specialist at United Soccer League, as well as a part time scout for Lexington Sporting Club’s USLC roster. He recently achieved a M.S. Sport Analytics from Syracuse University, and was most recently an Analytics Consultant for B2League team Kumamoto Volters. Before his journey in analysis, he was a Sports Editor at The Daily Illini during his B.S. Sports Media at the University of Illinois at Urbana-Champaign.
           </p>
         </div>
       </div>
