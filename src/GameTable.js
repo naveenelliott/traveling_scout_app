@@ -30,7 +30,7 @@ function GameTable({ data, selectedIndex, setSelectedIndex }) {
           </tr>
         </thead>
         <tbody>
-          {data.map((row, idx) => (
+          {data.slice(0, -1).map((row, idx) => (
             <tr
               key={idx}
               onClick={() => setSelectedIndex(idx)}
@@ -50,7 +50,7 @@ function GameTable({ data, selectedIndex, setSelectedIndex }) {
               <td style={tdStyle}>{row.from_team}</td>
               <td style={tdStyle}>{row.next_home}</td>
               <td style={tdStyle}>{parseFloat(row.distance).toFixed(2)}</td>
-              <td style={tdStyle}>{parseFloat(row.talent).toFixed(3)}</td>
+              <td style={tdStyle}>{parseFloat(row.avg_talent).toFixed(3)}</td>
             </tr>
           ))}
         </tbody>

@@ -29,7 +29,7 @@ function About() {
           />
           <h3>Naveen</h3>
           <p style={{ lineHeight: 1.5 }}>
-            Naveen is currently a business data analyst at DHL and enjoys working on sports analytics projects during his free time. He is a former Data Science Intern at Minnesota United FC,
+            Naveen (left) is currently a business data analyst at DHL and enjoys working on sports analytics projects during his free time. He is a former Data Science Intern at Minnesota United FC,
             where he applied data science techniques to player recruitment. He has also interned at Ohio State Athletics as a Sports Science Intern and worked at the 
             Boston Bolts as the Head of Analytics, where he focused on building individual player profiles and team performance metrics. 
           </p>
